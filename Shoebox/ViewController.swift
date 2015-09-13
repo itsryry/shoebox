@@ -1,25 +1,26 @@
 //
 //  ViewController.swift
-//  Shoebox
+//  ridi
 //
-//  Created by Aminul Hasan on 9/13/15.
+//  Created by Aminul Hasan on 8/4/15.
 //  Copyright (c) 2015 unfaded. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController : UIViewController {
+    
+    @IBOutlet
+    var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
-

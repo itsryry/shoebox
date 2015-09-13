@@ -1,0 +1,15 @@
+features - top to bottom
+
+
+p - progress
+d - defined
+c - complete
+l - launchable
+
+delete single item cell - COMPLETE
+add a single item cell - COMPLETE
+edit a single item cell - COMPLETE
+create a detail view - D
+support editing a detail view - D
+support image views in cells - D
+persist data in a cell - D

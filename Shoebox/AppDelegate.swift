@@ -1,12 +1,32 @@
 //
 //  AppDelegate.swift
-//  Shoebox
+//  ridi
 //
-//  Created by Aminul Hasan on 9/13/15.
+//  Created by Aminul Hasan on 8/4/15.
 //  Copyright (c) 2015 unfaded. All rights reserved.
 //
 
 import UIKit
+
+extension String {
+    var titles: String {
+        return NSLocalizedString(self,
+            tableName: "titles",
+            bundle: NSBundle.mainBundle(),
+            value: "",
+            comment: "")
+    }
+}
+
+extension String {
+    var defaults: String {
+        return NSLocalizedString(self,
+            tableName: "defaults",
+            bundle: NSBundle.mainBundle(),
+            value: "",
+            comment: "")
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Storage.initializeDefaultChecklist()
         return true
     }
 
@@ -27,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

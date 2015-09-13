@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		972E3BD41BA605D000E8C3DB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BC71BA605D000E8C3DB /* BaseViewController.swift */; };
+		972E3BD51BA605D000E8C3DB /* cbox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BC81BA605D000E8C3DB /* cbox.xib */; };
+		972E3BD61BA605D000E8C3DB /* checkboxcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BC91BA605D000E8C3DB /* checkboxcell.xib */; };
+		972E3BD71BA605D000E8C3DB /* checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BCA1BA605D000E8C3DB /* checklist.swift */; };
+		972E3BD81BA605D000E8C3DB /* checklistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BCB1BA605D000E8C3DB /* checklistDetail.swift */; };
+		972E3BD91BA605D000E8C3DB /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BCC1BA605D000E8C3DB /* constants.swift */; };
+		972E3BDA1BA605D000E8C3DB /* defaults.strings in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BCD1BA605D000E8C3DB /* defaults.strings */; };
+		972E3BDC1BA605D000E8C3DB /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BCF1BA605D000E8C3DB /* item.swift */; };
+		972E3BDD1BA605D000E8C3DB /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BD01BA605D000E8C3DB /* storage.swift */; };
+		972E3BDE1BA605D000E8C3DB /* titles.strings in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BD11BA605D000E8C3DB /* titles.strings */; };
+		972E3BDF1BA605D000E8C3DB /* todo in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BD21BA605D000E8C3DB /* todo */; };
+		972E3BE01BA605D000E8C3DB /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BD31BA605D000E8C3DB /* utils.swift */; };
 		97E916FA1BA6052F00D07C25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E916F91BA6052F00D07C25 /* AppDelegate.swift */; };
 		97E916FC1BA6052F00D07C25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E916FB1BA6052F00D07C25 /* ViewController.swift */; };
 		97E916FF1BA6052F00D07C25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E916FD1BA6052F00D07C25 /* Main.storyboard */; };
@@ -26,6 +38,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		972E3BC71BA605D000E8C3DB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		972E3BC81BA605D000E8C3DB /* cbox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cbox.xib; sourceTree = "<group>"; };
+		972E3BC91BA605D000E8C3DB /* checkboxcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = checkboxcell.xib; sourceTree = "<group>"; };
+		972E3BCA1BA605D000E8C3DB /* checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
+		972E3BCB1BA605D000E8C3DB /* checklistDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checklistDetail.swift; sourceTree = "<group>"; };
+		972E3BCC1BA605D000E8C3DB /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		972E3BCD1BA605D000E8C3DB /* defaults.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = defaults.strings; sourceTree = "<group>"; };
+		972E3BCF1BA605D000E8C3DB /* item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
+		972E3BD01BA605D000E8C3DB /* storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storage.swift; sourceTree = "<group>"; };
+		972E3BD11BA605D000E8C3DB /* titles.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = titles.strings; sourceTree = "<group>"; };
+		972E3BD21BA605D000E8C3DB /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		972E3BD31BA605D000E8C3DB /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		97E916F41BA6052F00D07C25 /* Shoebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E916F81BA6052F00D07C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E916F91BA6052F00D07C25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +101,18 @@
 		97E916F61BA6052F00D07C25 /* Shoebox */ = {
 			isa = PBXGroup;
 			children = (
+				972E3BC71BA605D000E8C3DB /* BaseViewController.swift */,
+				972E3BC81BA605D000E8C3DB /* cbox.xib */,
+				972E3BC91BA605D000E8C3DB /* checkboxcell.xib */,
+				972E3BCA1BA605D000E8C3DB /* checklist.swift */,
+				972E3BCB1BA605D000E8C3DB /* checklistDetail.swift */,
+				972E3BCC1BA605D000E8C3DB /* constants.swift */,
+				972E3BCD1BA605D000E8C3DB /* defaults.strings */,
+				972E3BCF1BA605D000E8C3DB /* item.swift */,
+				972E3BD01BA605D000E8C3DB /* storage.swift */,
+				972E3BD11BA605D000E8C3DB /* titles.strings */,
+				972E3BD21BA605D000E8C3DB /* todo */,
+				972E3BD31BA605D000E8C3DB /* utils.swift */,
 				97E916F91BA6052F00D07C25 /* AppDelegate.swift */,
 				97E916FB1BA6052F00D07C25 /* ViewController.swift */,
 				97E916FD1BA6052F00D07C25 /* Main.storyboard */,
@@ -192,7 +228,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972E3BDA1BA605D000E8C3DB /* defaults.strings in Resources */,
 				97E916FF1BA6052F00D07C25 /* Main.storyboard in Resources */,
+				972E3BDE1BA605D000E8C3DB /* titles.strings in Resources */,
+				972E3BD61BA605D000E8C3DB /* checkboxcell.xib in Resources */,
+				972E3BD51BA605D000E8C3DB /* cbox.xib in Resources */,
+				972E3BDF1BA605D000E8C3DB /* todo in Resources */,
 				97E917041BA6052F00D07C25 /* LaunchScreen.xib in Resources */,
 				97E917011BA6052F00D07C25 /* Images.xcassets in Resources */,
 			);
@@ -212,8 +253,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972E3BE01BA605D000E8C3DB /* utils.swift in Sources */,
+				972E3BD71BA605D000E8C3DB /* checklist.swift in Sources */,
 				97E916FC1BA6052F00D07C25 /* ViewController.swift in Sources */,
+				972E3BDC1BA605D000E8C3DB /* item.swift in Sources */,
 				97E916FA1BA6052F00D07C25 /* AppDelegate.swift in Sources */,
+				972E3BD81BA605D000E8C3DB /* checklistDetail.swift in Sources */,
+				972E3BDD1BA605D000E8C3DB /* storage.swift in Sources */,
+				972E3BD41BA605D000E8C3DB /* BaseViewController.swift in Sources */,
+				972E3BD91BA605D000E8C3DB /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +459,7 @@
 				97E917151BA6052F00D07C25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		97E917161BA6052F00D07C25 /* Build configuration list for PBXNativeTarget "ShoeboxTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +468,7 @@
 				97E917181BA6052F00D07C25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

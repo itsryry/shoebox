@@ -1,0 +1,10 @@
+/*
+  titles.strings
+  Ridi
+
+  Created by Aminul Hasan on 8/17/15.
+  Copyright (c) 2015 unfaded. All rights reserved.
+*/
+
+checklist = "Checklists";
+checklistDetail = "Bucket Item";
