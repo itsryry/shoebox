@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97E916F31BA6052F00D07C25"
-               BuildableName = "Shoebox.app"
-               BlueprintName = "Shoebox"
+               BuildableName = "ShoeBox.temp_caseinsensitive_rename.app"
+               BlueprintName = "Shoebox.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
                ReferencedContainer = "container:Shoebox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97E917081BA6052F00D07C25"
-               BuildableName = "ShoeboxTests.xctest"
-               BlueprintName = "ShoeboxTests"
+               BuildableName = "ShoeBox.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "Shoebox.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests"
                ReferencedContainer = "container:Shoebox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97E917081BA6052F00D07C25"
-               BuildableName = "ShoeboxTests.xctest"
-               BlueprintName = "ShoeboxTests"
+               BuildableName = "ShoeBox.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "Shoebox.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests"
                ReferencedContainer = "container:Shoebox.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97E916F31BA6052F00D07C25"
-            BuildableName = "Shoebox.app"
-            BlueprintName = "Shoebox"
+            BuildableName = "ShoeBox.temp_caseinsensitive_rename.app"
+            BlueprintName = "Shoebox.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Shoebox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97E916F31BA6052F00D07C25"
-            BuildableName = "Shoebox.app"
-            BlueprintName = "Shoebox"
+            BuildableName = "ShoeBox.temp_caseinsensitive_rename.app"
+            BlueprintName = "Shoebox.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Shoebox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97E916F31BA6052F00D07C25"
-            BuildableName = "Shoebox.app"
-            BlueprintName = "Shoebox"
+            BuildableName = "ShoeBox.temp_caseinsensitive_rename.app"
+            BlueprintName = "Shoebox.temp_caseinsensitive_rename.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Shoebox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

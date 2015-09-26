@@ -20,7 +20,7 @@ class checkboxCell : UITableViewCell {
     weak var wish: UITextField!
     
     @IBOutlet
-    weak var switcher: UISwitch!
+    weak var switcher: UIImageView!
     
     @IBOutlet
     weak var wishImage: UIImageView?
@@ -28,7 +28,10 @@ class checkboxCell : UITableViewCell {
 
 class PurpleUITextField : UITextField {
     override func awakeFromNib() {
-        layer.borderWidth = 1.0
+        layer.borderWidth = 2.0
+        borderStyle = UITextBorderStyle.RoundedRect
+        layer.cornerRadius = 5
+        clipsToBounds = true
         layer.borderColor = UIColor(red:0, green:153, blue:255, alpha:1).CGColor
     }
 }
@@ -93,8 +96,9 @@ class checklist : UITableViewController, CellCommander {
     
     func cell(tableView: UITableView, cellAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: checkboxCell = tableView.dequeueReusableCellWithIdentifier(checkboxcellid) as! checkboxCell
-        
-        cell.switcher.on = items[indexPath.row].checked
+
+        toggleImage(items[indexPath.row], imageView: cell.switcher)
+        utils.setClickableAction(cell.switcher, theTarget:self, selector:Selector("switchValueChanged:"))
         
         if items[indexPath.row].name == "newItem".defaults {
             cell.wish.placeholder = "newItem".defaults
@@ -104,8 +108,6 @@ class checklist : UITableViewController, CellCommander {
         items[indexPath.row].index = indexPath.row
         
         cell.switcher.tag = indexPath.row
-        cell.switcher.addTarget(self, action:Selector("switchValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        
         cell.wish.tag = indexPath.row
         cell.wish.addTarget(self, action:Selector("textValueChanged:"), forControlEvents: UIControlEvents.EditingChanged)
         cell.wish.addTarget(self, action:Selector("onBeginEditing:"), forControlEvents: UIControlEvents.EditingDidBegin)
@@ -157,14 +159,21 @@ class checklist : UITableViewController, CellCommander {
     
     @IBAction
     func addCheckboxCell(sender: AnyObject) {
+        tableView?.beginUpdates()
         items += [item(name:"", checked:false, hasImage:false)]
-        tableView?.reloadData()
+        var newIndexPath: NSIndexPath = NSIndexPath(forRow: items.count - 1, inSection:0)
+        tableView?.insertRowsAtIndexPaths([newIndexPath], withRowAnimation:UITableViewRowAnimation.Top)
+        tableView?.endUpdates()
         tableView.scrollToRowAtIndexPath(NSIndexPath(forRow:items.count - 1, inSection:0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
-    func switchValueChanged(sender: UISwitch!) {
-        items[sender.tag].checked = sender.on
-        Storage.saveItems(listkey!, items: items)
+    func switchValueChanged(sender: AnyObject) {
+        if let tapGestureRecognizer = sender as? UITapGestureRecognizer {
+            if let image = tapGestureRecognizer.view as? UIImageView {
+                items[image.tag].checked = !(items[image.tag].checked)
+                toggleImage(items[image.tag], imageView: image)
+            }
+        }
     }
     
     func textValueChanged(sender: UITextField) {
@@ -175,6 +184,14 @@ class checklist : UITableViewController, CellCommander {
     func onBeginEditing(sender: UITextField!) {
         if sender.text == "Bucket item!" {
             sender.text = ""
+        }
+    }
+    
+    func toggleImage(theItem: item!, imageView: UIImageView!) {
+        if theItem.checked! {
+            imageView.image = UIImage(named: "heart_selected.png")
+        } else {
+            imageView.image = UIImage(named: "heart_unselected.png")
         }
     }
     
