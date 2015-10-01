@@ -36,7 +36,6 @@ class Storage : NSObject {
         if let archivedItems = NSUserDefaults.standardUserDefaults().objectForKey(key) as? NSData {
             return NSKeyedUnarchiver.unarchiveObjectWithData(archivedItems) as? [item]
         } else {
-            utils.log(data:"Storage#getItems() There are no archived items for key: \(key)")
             var defaultlist: NSData = NSUserDefaults.standardUserDefaults().objectForKey(key) as! NSData
             return NSKeyedUnarchiver.unarchiveObjectWithData(defaultlist) as? [item]
         }
@@ -47,7 +46,6 @@ class Storage : NSObject {
         if let archivedItems = NSUserDefaults.standardUserDefaults().objectForKey(key) as? NSData {
             return NSKeyedUnarchiver.unarchiveObjectWithData(archivedItems) as? [item]
         } else {
-            utils.log(data:"Storage#getItems() There are no archived items for key: \(key) returning default")
             return _default
         }
     }
