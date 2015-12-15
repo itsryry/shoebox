@@ -135,7 +135,7 @@ class checklist : UITableViewController, CellCommander {
             
             Storage.saveItems(listkey!, items: items)
         } else if commitEditingStyle == UITableViewCellEditingStyle.Insert {
-            
+            Storage.saveItems(listkey!, items: items)
         }
     }
     
@@ -165,6 +165,7 @@ class checklist : UITableViewController, CellCommander {
         tableView?.insertRowsAtIndexPaths([newIndexPath], withRowAnimation:UITableViewRowAnimation.Top)
         tableView?.endUpdates()
         tableView.scrollToRowAtIndexPath(NSIndexPath(forRow:items.count - 1, inSection:0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        Storage.saveItems(listkey!, items: items)
     }
     
     func switchValueChanged(sender: AnyObject) {
@@ -172,6 +173,7 @@ class checklist : UITableViewController, CellCommander {
             if let image = tapGestureRecognizer.view as? UIImageView {
                 items[image.tag].checked = !(items[image.tag].checked)
                 toggleImage(items[image.tag], imageView: image)
+                Storage.saveItems(listkey!, items: items)
             }
         }
     }
@@ -189,8 +191,25 @@ class checklist : UITableViewController, CellCommander {
     
     func toggleImage(theItem: item!, imageView: UIImageView!) {
         if theItem.checked! {
+            imageView.alpha = 0
+            UIView.animateWithDuration(0.1, animations:{ imageView.alpha = 1.0 })
+
+            var bounceAnimation : CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+            bounceAnimation.values = [1.5, 0.9, 1.2, 1.0]
+            bounceAnimation.keyTimes = [0.0, 0.5, 0.75, 1.0]
+            bounceAnimation.duration = 0.5
+
+            imageView.layer.addAnimation(bounceAnimation, forKey: "bounce")
             imageView.image = UIImage(named: "heart_selected.png")
         } else {
+            UIView.animateWithDuration(0.1, animations:{ imageView.alpha = 1.0 })
+            
+            var bounceAnimation : CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+            bounceAnimation.values = [1.5, 0.9, 1.2, 1.0]
+            bounceAnimation.keyTimes = [0.0, 0.5, 0.75, 1.0]
+            bounceAnimation.duration = 0.3
+            
+            imageView.layer.addAnimation(bounceAnimation, forKey: "bounce")
             imageView.image = UIImage(named: "heart_unselected.png")
         }
     }
