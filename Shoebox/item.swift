@@ -8,7 +8,7 @@
 
 import UIKit
 
-class item : NSObject, NSCoding, Printable {
+class item : NSObject, NSCoding {
     
     var name: String!
     var checked: Bool!
@@ -19,20 +19,20 @@ class item : NSObject, NSCoding, Printable {
         return "\n name: \(name) \n checked: \(checked) \n hasImage: \(hasImage) \n imagePath: \(imagePath) \n index: \(index) \n"
     }
     
-    private override init() { }
+    fileprivate override init() { }
     
     required init(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObjectForKey("name") as! String
-        checked = aDecoder.decodeBoolForKey("checked") as Bool
-        hasImage = aDecoder.decodeBoolForKey("hasImage") as Bool
-        imagePath = aDecoder.decodeObjectForKey("imagePath") as? String
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        checked = aDecoder.decodeObject(forKey: "checked") as? Bool ?? aDecoder.decodeBool(forKey: "checked")
+        hasImage = aDecoder.decodeObject(forKey: "hasImage") as? Bool ?? aDecoder.decodeBool(forKey: "hasImage")
+        imagePath = aDecoder.decodeObject(forKey: "imagePath") as? String
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey:"name");
-        aCoder.encodeBool(checked, forKey:"checked");
-        aCoder.encodeBool(hasImage, forKey:"hasImage");
-        aCoder.encodeObject(imagePath, forKey:"imagePath");
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey:"name");
+        aCoder.encode(checked, forKey:"checked");
+        aCoder.encode(hasImage, forKey:"hasImage");
+        aCoder.encode(imagePath, forKey:"imagePath");
     }
     
     convenience init(name: String!,

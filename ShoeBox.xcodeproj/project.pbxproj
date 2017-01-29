@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		972E3BD41BA605D000E8C3DB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BC71BA605D000E8C3DB /* BaseViewController.swift */; };
-		972E3BD51BA605D000E8C3DB /* cbox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BC81BA605D000E8C3DB /* cbox.xib */; };
 		972E3BD61BA605D000E8C3DB /* checkboxcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 972E3BC91BA605D000E8C3DB /* checkboxcell.xib */; };
 		972E3BD71BA605D000E8C3DB /* checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BCA1BA605D000E8C3DB /* checklist.swift */; };
 		972E3BD81BA605D000E8C3DB /* checklistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E3BCB1BA605D000E8C3DB /* checklistDetail.swift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		972E3BC71BA605D000E8C3DB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		972E3BC81BA605D000E8C3DB /* cbox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cbox.xib; sourceTree = "<group>"; };
 		972E3BC91BA605D000E8C3DB /* checkboxcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = checkboxcell.xib; sourceTree = "<group>"; };
 		972E3BCA1BA605D000E8C3DB /* checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checklist.swift; sourceTree = "<group>"; };
 		972E3BCB1BA605D000E8C3DB /* checklistDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checklistDetail.swift; sourceTree = "<group>"; };
@@ -53,15 +51,15 @@
 		972E3BD31BA605D000E8C3DB /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		972E3BF21BB13DDA00E8C3DB /* heart_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_selected.png; sourceTree = "<group>"; };
 		972E3BFA1BB283FE00E8C3DB /* heart_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_unselected.png; sourceTree = "<group>"; };
-		97E916F41BA6052F00D07C25 /* ShoeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E916F81BA6052F00D07C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E916F91BA6052F00D07C25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E916FE1BA6052F00D07C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97E917001BA6052F00D07C25 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		97E917031BA6052F00D07C25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		97E917091BA6052F00D07C25 /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9170E1BA6052F00D07C25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E9170F1BA6052F00D07C25 /* ShoeboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeboxTests.swift; sourceTree = "<group>"; };
+		F33142E01E3D33DF00F81E7B /* ShoeBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33142E11E3E695100F81E7B /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				972E3BC91BA605D000E8C3DB /* checkboxcell.xib */,
-				972E3BC81BA605D000E8C3DB /* cbox.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -149,17 +146,9 @@
 			children = (
 				97E916F61BA6052F00D07C25 /* Shoebox */,
 				97E9170C1BA6052F00D07C25 /* ShoeboxTests */,
-				97E916F51BA6052F00D07C25 /* Products */,
+				F33142E01E3D33DF00F81E7B /* ShoeBox.app */,
+				F33142E11E3E695100F81E7B /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		97E916F51BA6052F00D07C25 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				97E916F41BA6052F00D07C25 /* ShoeBox.app */,
-				97E917091BA6052F00D07C25 /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		97E916F61BA6052F00D07C25 /* Shoebox */ = {
@@ -224,7 +213,7 @@
 			);
 			name = ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_rename;
 			productName = Shoebox;
-			productReference = 97E916F41BA6052F00D07C25 /* ShoeBox.app */;
+			productReference = F33142E01E3D33DF00F81E7B /* ShoeBox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		97E917081BA6052F00D07C25 /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests */ = {
@@ -242,7 +231,7 @@
 			);
 			name = ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests;
 			productName = ShoeboxTests;
-			productReference = 97E917091BA6052F00D07C25 /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */;
+			productReference = F33142E11E3E695100F81E7B /* ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -251,12 +240,13 @@
 		97E916EC1BA6052F00D07C25 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = unfaded;
 				TargetAttributes = {
 					97E916F31BA6052F00D07C25 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = Z7EAZWK96N;
+						LastSwiftMigration = 0800;
 					};
 					97E917081BA6052F00D07C25 = {
 						CreatedOnToolsVersion = 6.4;
@@ -273,7 +263,7 @@
 				Base,
 			);
 			mainGroup = 97E916EB1BA6052F00D07C25;
-			productRefGroup = 97E916F51BA6052F00D07C25 /* Products */;
+			productRefGroup = 97E916EB1BA6052F00D07C25;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -293,7 +283,6 @@
 				972E3BDE1BA605D000E8C3DB /* titles.strings in Resources */,
 				972E3BD61BA605D000E8C3DB /* checkboxcell.xib in Resources */,
 				972E3BF31BB13DDA00E8C3DB /* heart_selected.png in Resources */,
-				972E3BD51BA605D000E8C3DB /* cbox.xib in Resources */,
 				972E3BDF1BA605D000E8C3DB /* todo in Resources */,
 				97E917041BA6052F00D07C25 /* LaunchScreen.xib in Resources */,
 				97E917011BA6052F00D07C25 /* Images.xcassets in Resources */,
@@ -377,14 +366,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -422,8 +414,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -442,6 +436,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -455,8 +450,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Shoebox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfaded.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ShoeBox;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -469,8 +466,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryan Hasan (M4ULEQ5NEL)";
 				INFOPLIST_FILE = Shoebox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfaded.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ShoeBox;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -488,6 +487,7 @@
 				);
 				INFOPLIST_FILE = ShoeboxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfaded.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app/ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_rename";
 			};
@@ -502,6 +502,7 @@
 				);
 				INFOPLIST_FILE = ShoeboxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.unfaded.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app/ShoeBox.temp_caseinsensitive_rename.temp_caseinsensitive_rename.temp_caseinsensitive_rename";
 			};

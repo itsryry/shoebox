@@ -18,8 +18,4 @@ class BaseViewController : UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func setTitle(title: String? = "") {
-        navigationItem.title = title
-    }
 }

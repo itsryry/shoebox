@@ -30,12 +30,12 @@ class checklistDetail : UIViewController, UIImagePickerControllerDelegate,
         
         navigationItem.title = itemModel.name
         list = childViewControllers[0] as! checklist
-        list.listkey = toString(itemModel.index)
-        list.loadItems(toString(itemModel.index), _default: Storage.items)
+        list.listkey = String(itemModel.index)
+        list.loadItems(String(itemModel.index), _default: Storage.items)
         list.tableView.delegate = self
         list.cellCommander = self
         
-        var addButton = UIBarButtonItem(image: nil, style: UIBarButtonItemStyle.Plain, target:list, action:Selector("addCheckboxCell:"))
+        let addButton = UIBarButtonItem(image: nil, style: UIBarButtonItemStyle.plain, target:list, action:Selector(("addCheckboxCell:")))
         addButton.title = "Add"
         navigationItem.rightBarButtonItem = addButton
         
@@ -43,7 +43,7 @@ class checklistDetail : UIViewController, UIImagePickerControllerDelegate,
             loadBucketItemImage()
         }
         
-        view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = UIColor.black
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,7 +51,7 @@ class checklistDetail : UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction
-    func onItemImageClick(sender: AnyObject) {
+    func onItemImageClick(_ sender: AnyObject) {
         if sender.tag == 0 {
             launchImagePickerController()
         }
@@ -61,21 +61,21 @@ class checklistDetail : UIViewController, UIImagePickerControllerDelegate,
         let imagePicker = UIImagePickerController()
         
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.allowsEditing = false
 
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [AnyHashable: Any]) {
         image.image = (info[UIImagePickerControllerOriginalImage] as! UIImage)
-        let singleTap = UITapGestureRecognizer(target: self, action: Selector("imageTapped"))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(checklistDetail.imageTapped))
         singleTap.numberOfTapsRequired = 2
-        image.userInteractionEnabled = true
+        image.isUserInteractionEnabled = true
         image.addGestureRecognizer(singleTap)
         
-        addImage.hidden = true
-        self.dismissViewControllerAnimated(true, completion: nil)
+        addImage.isHidden = true
+        self.dismiss(animated: true, completion: nil)
         
         saveBucketItemImage()
     }
@@ -85,38 +85,32 @@ class checklistDetail : UIViewController, UIImagePickerControllerDelegate,
     }
     
     func saveBucketItemImage() {
-        let nsDocumentDirectory = NSSearchPathDirectory.DocumentDirectory
-        let nsUserDomainMask = NSSearchPathDomainMask.UserDomainMask
-        if let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true) {
-            if paths.count > 0 {
-                if let dirPath = paths[0] as? String {
-                    let writePath = dirPath.stringByAppendingPathComponent("\(IMAGE_PATH_PREFIX)\(itemModel.index).png")
-                    UIImagePNGRepresentation(self.image.image).writeToFile(writePath, atomically: true)
-                    itemModel.imagePath = writePath
-                    Storage.updateItem(Storage.defaultChecklist, theItem: itemModel)
-                }
-            }
-        }
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let imageurl: URL = URL(fileURLWithPath: dirPath)
+        let writePath = imageurl.appendingPathComponent("\(IMAGE_PATH_PREFIX)\(itemModel.index).png")
+        try! UIImagePNGRepresentation(self.image.image!)?.write(to: writePath, options: .atomic)
+        itemModel.imagePath = writePath.absoluteString
+        Storage.updateItem(Storage.defaultChecklist, theItem: itemModel)
     }
     
     func loadBucketItemImage() {
         image.image = UIImage(named: itemModel.imagePath)
         if image.image != nil {
-            addImage.hidden = true
+            addImage.isHidden = true
         }
     }
     
-    func cell(tableView: UITableView, cellAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func cell(_ tableView: UITableView, cellAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         var cellCommander: CellCommander = list as CellCommander
         var cell: UITableViewCell = cellCommander.cell(tableView, cellAtIndexPath: indexPath)
-        cell.accessoryType = UITableViewCellAccessoryType.None
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.accessoryType = UITableViewCellAccessoryType.none
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selectd cell #\(indexPath.row)!")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selectd cell #\((indexPath as NSIndexPath).row)!")
     }
 
 }

@@ -11,15 +11,16 @@ import UIKit
 
 
 class utils {
-    static func log(var data: String = "Mr. Default") {
-        println(data)
+    static func log(_ data: String = "Mr. Default") {
+        let data = data
+        print(data)
     }
     
-    static func setClickableAction(image: UIImageView!, theTarget: UIViewController!, selector: Selector!) {
+    static func setClickableAction(_ image: UIImageView!, theTarget: UIViewController!, selector: Selector!) {
         let singleTap = UITapGestureRecognizer(target: theTarget, action: selector)
         singleTap.numberOfTapsRequired = 1
-        image.userInteractionEnabled = true
-        image.multipleTouchEnabled = true
+        image.isUserInteractionEnabled = true
+        image.isMultipleTouchEnabled = true
         image.addGestureRecognizer(singleTap)
     }
 }

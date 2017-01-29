@@ -15,43 +15,47 @@ class Storage : NSObject {
         item(name: "", checked: false, hasImage: false)
     ]
     
-    private override init() { }
+    fileprivate override init() { }
     
     static func initializeDefaultChecklist() {
-        let defaultsAsAList = NSKeyedArchiver.archivedDataWithRootObject(items as NSArray)
-        var defaultsDictionaryStoringTheList = [defaultChecklist: defaultsAsAList]
-        NSUserDefaults.standardUserDefaults().registerDefaults(defaultsDictionaryStoringTheList)
+        let defaultsAsAList = NSKeyedArchiver.archivedData(withRootObject: items as NSArray)
+        let defaultsDictionaryStoringTheList = [defaultChecklist: defaultsAsAList]
+        UserDefaults.standard.register(defaults: defaultsDictionaryStoringTheList)
     }
     
-    static func saveItems(var key: String, items: [item]) {
-        println("Saving items with key:\(key) and value: \(items.description)")
-        let archiveItems = NSKeyedArchiver.archivedDataWithRootObject(items as NSArray)
-        let storage = NSUserDefaults.standardUserDefaults()
-        storage.setObject(archiveItems, forKey: key)
+    static func saveItems(_ key: String, items: [item]) {
+        let key = key
+        print("Saving items with key:\(key) and value: \(items.description)")
+        let archiveItems = NSKeyedArchiver.archivedData(withRootObject: items as NSArray)
+        let storage = UserDefaults.standard
+        storage.set(archiveItems, forKey: key)
         storage.synchronize()
     }
     
-    static func getItems(var key: String) -> [item]? {
-        println("Getting items with key:\(key)")
-        if let archivedItems = NSUserDefaults.standardUserDefaults().objectForKey(key) as? NSData {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(archivedItems) as? [item]
+    static func getItems(_ key: String) -> [item]? {
+        let key = key
+        print("Getting items with key:\(key)")
+        if let archivedItems = UserDefaults.standard.object(forKey: key) as? Data {
+            return NSKeyedUnarchiver.unarchiveObject(with: archivedItems) as? [item]
         } else {
-            var defaultlist: NSData = NSUserDefaults.standardUserDefaults().objectForKey(key) as! NSData
-            return NSKeyedUnarchiver.unarchiveObjectWithData(defaultlist) as? [item]
+            let defaultlist: Data = UserDefaults.standard.object(forKey: key) as! Data
+            return NSKeyedUnarchiver.unarchiveObject(with: defaultlist) as? [item]
         }
     }
     
-    static func getItems(var key: String, _default: [item]) -> [item]? {
-        println("Getting items with key:\(key)")
-        if let archivedItems = NSUserDefaults.standardUserDefaults().objectForKey(key) as? NSData {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(archivedItems) as? [item]
+    static func getItems(_ key: String, _default: [item]) -> [item]? {
+        let key = key
+        print("Getting items with key:\(key)")
+        if let archivedItems = UserDefaults.standard.object(forKey: key) as? Data {
+            return NSKeyedUnarchiver.unarchiveObject(with: archivedItems) as? [item]
         } else {
             return _default
         }
     }
     
-    static func updateItem(var key: String, var theItem: item) {
-        println("Updating items with key:\(key) with model: \(theItem.description)")
+    static func updateItem(_ key: String, theItem: item) {
+        let key = key, theItem = theItem
+        print("Updating items with key:\(key) with model: \(theItem.description)")
         var items: [item] = getItems(key)!
         items[theItem.index] = theItem
         saveItems(key, items: items)

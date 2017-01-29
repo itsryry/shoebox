@@ -29,15 +29,15 @@ class checkboxCell : UITableViewCell {
 class PurpleUITextField : UITextField {
     override func awakeFromNib() {
         layer.borderWidth = 2.0
-        borderStyle = UITextBorderStyle.RoundedRect
+        borderStyle = UITextBorderStyle.roundedRect
         layer.cornerRadius = 5
         clipsToBounds = true
-        layer.borderColor = UIColor(red:0, green:153, blue:255, alpha:1).CGColor
+        layer.borderColor = UIColor(red:0, green:153, blue:255, alpha:1).cgColor
     }
 }
 
 protocol CellCommander {
-    func cell(tableView: UITableView, cellAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func cell(_ tableView: UITableView, cellAtIndexPath indexPath: IndexPath) -> UITableViewCell
 }
 
 class checklist : UITableViewController, CellCommander {
@@ -64,111 +64,113 @@ class checklist : UITableViewController, CellCommander {
         
         tableView.backgroundColor = UIColor(red:0.0, green:0.0, blue: 0.0, alpha:1.0)
         
-        var cboxNib = UINib(nibName: "checkboxcell", bundle: nil)
-        var addNib = UINib(nibName: "addcell", bundle: nil)
+        let cboxNib = UINib(nibName: "checkboxcell", bundle: nil)
+        let addNib = UINib(nibName: "addcell", bundle: nil)
         
-        tableView?.registerNib(cboxNib, forCellReuseIdentifier: checkboxcellid)
-        tableView?.registerNib(addNib, forCellReuseIdentifier: addcellid)
+        tableView?.register(cboxNib, forCellReuseIdentifier: checkboxcellid)
+        tableView?.register(addNib, forCellReuseIdentifier: addcellid)
         navigationItem.title = "checklist".titles
         
-        var addButton = UIBarButtonItem(image: nil, style: UIBarButtonItemStyle.Plain, target:self, action:Selector("addCheckboxCell:"))
+        let addButton = UIBarButtonItem(image: nil, style: UIBarButtonItemStyle.plain, target:self, action:#selector(checklist.addCheckboxCell(_:)))
         addButton.title = "Add"
         navigationItem.rightBarButtonItem = addButton
         
         cellCommander = self as CellCommander
         
         UITextField.appearance().layer.borderWidth = 2.0
-        UITextField.appearance().layer.borderColor =  UIColor( red: 0.5, green: 0.0, blue:0, alpha: 1.0 ).CGColor
+        UITextField.appearance().layer.borderColor =  UIColor( red: 0.5, green: 0.0, blue:0, alpha: 1.0 ).cgColor
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView?.setEditing(editing, animated: animated)
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func cell(tableView: UITableView, cellAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: checkboxCell = tableView.dequeueReusableCellWithIdentifier(checkboxcellid) as! checkboxCell
+    func cell(_ tableView: UITableView, cellAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell: checkboxCell = tableView.dequeueReusableCell(withIdentifier: checkboxcellid) as! checkboxCell
 
-        toggleImage(items[indexPath.row], imageView: cell.switcher)
-        utils.setClickableAction(cell.switcher, theTarget:self, selector:Selector("switchValueChanged:"))
+        toggleImage(items[(indexPath as NSIndexPath).row], imageView: cell.switcher)
+        utils.setClickableAction(cell.switcher, theTarget:self, selector:#selector(checklist.switchValueChanged(_:)))
         
-        if items[indexPath.row].name == "newItem".defaults {
+        if items[(indexPath as NSIndexPath).row].name == "newItem".defaults {
             cell.wish.placeholder = "newItem".defaults
         } else {
-            cell.wish.text = items[indexPath.row].name
+            cell.wish.text = items[(indexPath as NSIndexPath).row].name
         }
-        items[indexPath.row].index = indexPath.row
+        items[(indexPath as NSIndexPath).row].index = (indexPath as NSIndexPath).row
         
-        cell.switcher.tag = indexPath.row
-        cell.wish.tag = indexPath.row
-        cell.wish.addTarget(self, action:Selector("textValueChanged:"), forControlEvents: UIControlEvents.EditingChanged)
-        cell.wish.addTarget(self, action:Selector("onBeginEditing:"), forControlEvents: UIControlEvents.EditingDidBegin)
+        cell.switcher.tag = (indexPath as NSIndexPath).row
+        cell.wish.tag = (indexPath as NSIndexPath).row
+        cell.wish.addTarget(self, action:#selector(checklist.textValueChanged(_:)), for: UIControlEvents.editingChanged)
+        cell.wish.addTarget(self, action:#selector(checklist.onBeginEditing(_:)), for: UIControlEvents.editingDidBegin)
         UITextField.appearance().layer.borderWidth = 2.0
-        UITextField.appearance().layer.borderColor = UIColor.purpleColor().CGColor
+        UITextField.appearance().layer.borderColor = UIColor.purple.cgColor
         return cell
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return cellCommander.cell(tableView, cellAtIndexPath: indexPath)
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selectd cell #\(indexPath.row)!")
-        selectedItem = items[indexPath.row]
-        performSegueWithIdentifier("detail", sender: self)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selectd cell #\((indexPath as NSIndexPath).row)!")
+        selectedItem = items[(indexPath as NSIndexPath).row]
+        performSegue(withIdentifier: "detail", sender: self)
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle: UITableViewCellEditingStyle,
-        forRowAtIndexPath indexPath: NSIndexPath) {
-        if commitEditingStyle == UITableViewCellEditingStyle.Delete {
-            println("Deleting cell at #\(indexPath.row)")
-            items.removeAtIndex(indexPath.row)
+    override func tableView(_ tableView: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle,
+        forRowAt indexPath: IndexPath) {
+        if commitEditingStyle == UITableViewCellEditingStyle.delete {
+            print("Deleting cell at #\((indexPath as NSIndexPath).row)")
+            items.remove(at: (indexPath as NSIndexPath).row)
             tableView.reloadData()
             
             Storage.saveItems(listkey!, items: items)
-        } else if commitEditingStyle == UITableViewCellEditingStyle.Insert {
+        } else if commitEditingStyle == UITableViewCellEditingStyle.insert {
             Storage.saveItems(listkey!, items: items)
         }
     }
     
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        if tableView.cellForRowAtIndexPath(indexPath) is addCell {
-            return UITableViewCellEditingStyle.None
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if tableView.cellForRow(at: indexPath) is addCell {
+            return UITableViewCellEditingStyle.none
         } else {
-            return UITableViewCellEditingStyle.Delete
+            return UITableViewCellEditingStyle.delete
         }
     }
     
-    func loadItems(var key: String, var _default: [item]) {
+    func loadItems(_ key: String, _default: [item]) {
+        var key = key, _default = _default
         listkey = key
         items = Storage.getItems(listkey!, _default: _default) as [item]!;
         tableView?.reloadData()
     }
     
-    func saveItems(var key: String) {
+    func saveItems(_ key: String) {
+        let key = key
         Storage.saveItems(key, items: items);
     }
     
     @IBAction
-    func addCheckboxCell(sender: AnyObject) {
+    func addCheckboxCell(_ sender: AnyObject) {
         tableView?.beginUpdates()
         items += [item(name:"", checked:false, hasImage:false)]
-        var newIndexPath: NSIndexPath = NSIndexPath(forRow: items.count - 1, inSection:0)
-        tableView?.insertRowsAtIndexPaths([newIndexPath], withRowAnimation:UITableViewRowAnimation.Top)
+        let newIndexPath: IndexPath = IndexPath(row: items.count - 1, section:0)
+        tableView?.insertRows(at: [newIndexPath], with:UITableViewRowAnimation.top)
         tableView?.endUpdates()
-        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow:items.count - 1, inSection:0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        tableView.scrollToRow(at: IndexPath(row:items.count - 1, section:0), at: UITableViewScrollPosition.bottom, animated: true)
         Storage.saveItems(listkey!, items: items)
     }
     
-    func switchValueChanged(sender: AnyObject) {
+    func switchValueChanged(_ sender: AnyObject) {
         if let tapGestureRecognizer = sender as? UITapGestureRecognizer {
             if let image = tapGestureRecognizer.view as? UIImageView {
                 items[image.tag].checked = !(items[image.tag].checked)
@@ -178,45 +180,45 @@ class checklist : UITableViewController, CellCommander {
         }
     }
     
-    func textValueChanged(sender: UITextField) {
+    func textValueChanged(_ sender: UITextField) {
         items[sender.tag].name = sender.text
         Storage.saveItems(listkey!, items: items)
     }
     
-    func onBeginEditing(sender: UITextField!) {
+    func onBeginEditing(_ sender: UITextField!) {
         if sender.text == "Bucket item!" {
             sender.text = ""
         }
     }
     
-    func toggleImage(theItem: item!, imageView: UIImageView!) {
+    func toggleImage(_ theItem: item!, imageView: UIImageView!) {
         if theItem.checked! {
             imageView.alpha = 0
-            UIView.animateWithDuration(0.1, animations:{ imageView.alpha = 1.0 })
+            UIView.animate(withDuration: 0.1, animations:{ imageView.alpha = 1.0 })
 
-            var bounceAnimation : CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+            let bounceAnimation : CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
             bounceAnimation.values = [1.5, 0.9, 1.2, 1.0]
             bounceAnimation.keyTimes = [0.0, 0.5, 0.75, 1.0]
             bounceAnimation.duration = 0.5
 
-            imageView.layer.addAnimation(bounceAnimation, forKey: "bounce")
+            imageView.layer.add(bounceAnimation, forKey: "bounce")
             imageView.image = UIImage(named: "heart_selected.png")
         } else {
-            UIView.animateWithDuration(0.1, animations:{ imageView.alpha = 1.0 })
+            UIView.animate(withDuration: 0.1, animations:{ imageView.alpha = 1.0 })
             
-            var bounceAnimation : CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+            let bounceAnimation : CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
             bounceAnimation.values = [1.5, 0.9, 1.2, 1.0]
             bounceAnimation.keyTimes = [0.0, 0.5, 0.75, 1.0]
             bounceAnimation.duration = 0.3
             
-            imageView.layer.addAnimation(bounceAnimation, forKey: "bounce")
+            imageView.layer.add(bounceAnimation, forKey: "bounce")
             imageView.image = UIImage(named: "heart_unselected.png")
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detail" {
-            if let checklistDetail = segue.destinationViewController as? checklistDetail {
+            if let checklistDetail = segue.destination as? checklistDetail {
                 checklistDetail.itemModel = selectedItem
             }
         }
